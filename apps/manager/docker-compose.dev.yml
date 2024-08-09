@@ -1,8 +1,8 @@
 version: '3.9'
 services:
-  typoteka.blog.postgres:
+  project.manager.postgres:
     image: postgres:14-alpine
-    container_name: typoteka.blog.postgres
+    container_name: project.manager.postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -10,21 +10,21 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - typoteka.postgres.blog:/var/lib/postgresql/data
+      - project.postgres.manager:/var/lib/postgresql/data
 
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d {POSTGRES_PASSWORD}" ]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_PASSWORD}" ]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 10s
 
     networks:
-      - typoteka.blog
+      - project.manager
 
-  typoteka.blog.pgadmin:
+  project.manager.pgadmin:
     image: dpage/pgadmin4
-    container_name: typoteka.blog.pgadmin
+    container_name: project.manager.pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
@@ -32,13 +32,13 @@ services:
     ports:
       - 8082:80
     depends_on:
-      - typoteka.blog.postgres
+      - project.manager.postgres
     networks:
-      - typoteka.blog
+      - project.manager
 
 volumes:
-  typoteka.postgres.blog:
+  project.postgres.manager:
 
 networks:
-  typoteka.blog:
+  project.manager:
       driver: bridge
