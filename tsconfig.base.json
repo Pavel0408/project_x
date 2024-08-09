@@ -16,7 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@project-x/shared/core": ["shared/core/src/index.ts"],
-      "@project-x/shared/manager/models": ["shared/manager/models/src/index.ts"]
+      "@project-x/shared/manager/models": [
+        "shared/manager/models/src/index.ts"
+      ],
+      "@project-x/shared/prisma": ["shared/prisma/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
