@@ -1,0 +1,24 @@
+{
+  "name": "discount",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/discount/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "discount:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "discount:build:development"
+        },
+        "production": {
+          "buildTarget": "discount:build:production"
+        }
+      }
+    }
+  }
+}
