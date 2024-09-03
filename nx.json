@@ -34,7 +34,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/manager-e2e/**/*"]
+      "exclude": ["apps/manager-e2e/**/*", "apps/organization-e2e/**/*"]
     },
     {
       "plugin": "@nx/vite/plugin",
