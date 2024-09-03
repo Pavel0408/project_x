@@ -38,7 +38,8 @@
         "apps/manager-e2e/**/*",
         "apps/organization-e2e/**/*",
         "apps/api-e2e/**/*",
-        "apps/discount-e2e/**/*"
+        "apps/discount-e2e/**/*",
+        "apps/client-e2e/**/*"
       ]
     },
     {
